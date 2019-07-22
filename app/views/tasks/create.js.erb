@@ -1,6 +1,7 @@
 <%- if @task.errors.blank? -%>
   $('#backlog').append('<%= @task.title %>')
-  alert('success')
+  alert('inside create.js.erb: success')
+
 <%- else -%>
-  alert('failed')
+  alert('inside create.js.erb: failed')
 <%- end -%>

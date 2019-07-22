@@ -4,4 +4,6 @@ class Task
   field :description, type: String
   field :due_date, type: Date
   embedded_in :user
+
+  validates_presence_of :title, :description
 end
