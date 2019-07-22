@@ -5,4 +5,38 @@
 <div class="actions">
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Add Task</button>
+
+  <!-- Modal -->
+  <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <%= render 'tasks/form', task: @task%>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" id='backlog'>
+        <h2>Backlog</h2>
+        
+      </div>
+
+      <div class="col-md-3">
+        <h2>Inprogress</h2>
+        <p>&nbsp;</p>
+      </div>
+
+      <div class="col-md-3">
+        <h2>Under Review</h2>
+        <p>&nbsp;</p>
+      </div>
+
+      <div class="col-md-3">
+        <h2>Complete</h2>
+        <p>&nbsp;</p>
+      </div>
+
+    </div>
+
+  </div>
+  
 </div>
