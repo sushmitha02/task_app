@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
-  def home
-  end
+	before_action :authenticate_user!, only: :dashboard
 
-  def dashboard
-  end
+	def home
+	end
+
+	def dashboard
+		@task = Task.new
+	end
 end
