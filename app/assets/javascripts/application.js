@@ -12,11 +12,13 @@
 //
 //= require jquery
 //= require rails-ujs
+//= require jquery-ui
 //= require turbolinks
-//= require rails-ujs
 //= require popper
 //= require bootstrap-sprockets
 
 //= require page
+//= require draggable_n_droppable
+
 
 

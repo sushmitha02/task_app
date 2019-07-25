@@ -1,13 +1,15 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
 <p id="notice"><%= notice %></p>
 
 <h1>Dashboards</h1>
 
 <div class="actions">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#taskModal">
   Add Task</button>
 
   <!-- Modal -->
-  <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" data-backdrop="static" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <%= render 'tasks/form', task: @task%>
     </div>
@@ -15,28 +17,34 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-3" id='backlog'>
-        <h2>Backlog</h2>
-        
+      <div class="col-md-3 border shadow">
+        <h2 class='border-bottom'>Backlog</h2>
+        <div class="droppable" id='backlog'>
+
+          <% @tasks.each do |task|%>
+          <%= render 'tasks/task', task: task %>
+          <% end %>
+
+        </div>
       </div>
 
-      <div class="col-md-3">
-        <h2>Inprogress</h2>
-        <p>&nbsp;</p>
+      <div class="col-md-3 border shadow">
+        <h2 class='border-bottom'>Inprogress</h2>
+        <div class="droppable" id='inprogress'></div>
       </div>
 
-      <div class="col-md-3">
-        <h2>Under Review</h2>
-        <p>&nbsp;</p>
+      <div class="col-md-3 border shadow">
+        <h2 class='border-bottom'>Under Review</h2>
+        <div class="droppable" id='underReview'></div>
       </div>
 
-      <div class="col-md-3">
-        <h2>Complete</h2>
-        <p>&nbsp;</p>
+      <div class="col-md-3 border shadow">
+        <h2 class='border-bottom'>Complete</h2>
+        <div class="droppable" id='complete'></div>
       </div>
 
     </div>
 
   </div>
-  
+
 </div>

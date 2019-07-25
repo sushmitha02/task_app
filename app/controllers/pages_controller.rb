@@ -6,5 +6,6 @@ class PagesController < ApplicationController
 
 	def dashboard
 		@task = Task.new
+		@tasks = current_user.tasks
 	end
 end
