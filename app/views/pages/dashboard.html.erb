@@ -21,8 +21,8 @@
         <h2 class='border-bottom'>Backlog</h2>
         <div class="droppable" id='backlog'>
 
-          <% @tasks.each do |task|%>
-          <%= render 'tasks/task', task: task %>
+          <% @tasks.where(status: 'backlog').each do |task|%>
+            <%= render 'tasks/task', task: task %>
           <% end %>
 
         </div>
@@ -30,17 +30,35 @@
 
       <div class="col-md-3 border shadow">
         <h2 class='border-bottom'>Inprogress</h2>
-        <div class="droppable" id='inprogress'></div>
+        <div class="droppable" id='inprogress'>
+          
+          <% @tasks.where(status: 'inprogress').each do |task|%>
+            <%= render 'tasks/task', task: task %>
+          <% end %>
+          
+        </div>
       </div>
 
       <div class="col-md-3 border shadow">
         <h2 class='border-bottom'>Under Review</h2>
-        <div class="droppable" id='underReview'></div>
+        <div class="droppable" id='underReview'>
+          
+          <% @tasks.where(status: 'underReview').each do |task|%>
+            <%= render 'tasks/task', task: task %>
+          <% end %>
+          
+        </div>
       </div>
 
       <div class="col-md-3 border shadow">
         <h2 class='border-bottom'>Complete</h2>
-        <div class="droppable" id='complete'></div>
+        <div class="droppable" id='complete'>
+          
+          <% @tasks.where(status: 'complete').each do |task|%>
+            <%= render 'tasks/task', task: task %>
+          <% end %>
+          
+        </div>
       </div>
 
     </div>

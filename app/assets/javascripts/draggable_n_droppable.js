@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-  initateDragDrop();  
+
+  initateDragDrop();
+
 
 });
 
@@ -14,8 +16,16 @@ function initateDragDrop() {
     drop: function( event, ui ) {
       // get the id of the task and send ajax request to update the status
       // with the bucket status
-      
+      var taskId = $(ui.draggable[0]).data('task-id')
       var bucketName = $(this).attr('id');
+
+      $.ajax({
+        url: '/tasks/' + taskId,
+        method: 'put',
+        dataType: 'script',
+        data: {task: {status: bucketName}}
+      })
+      
 
       var title = $(ui.draggable[0]).find('.card-title').html()
       console.log(title + ' task was moved to '+ bucketName)
