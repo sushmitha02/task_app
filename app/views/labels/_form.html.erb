@@ -1,0 +1,36 @@
+<div class="modal-content">
+  <%= form_for label, remote: true do |form| %>
+  <% if label.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(label.errors.count, "error") %> prohibited this label from being saved:</h2>
+
+    <ul>
+      <% label.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Add Label</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="field">
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+      <%= form.hidden_field :task_id, value: task_id %>
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Save</button>
+  </div>
+
+  <% end %>
+</div>
